@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions";
 import { Provider } from "react-redux";
 import TaskList from "./TaskList";
 import { task, actions } from "./Task.stories";
-import { withKnobs, object } from "@storybook/addon-knobs/react";
+import { withKnobs, object, boolean } from "@storybook/addon-knobs/react";
 // A super-simple mock of a redux store
 const store = {
   getState: () => {
@@ -44,6 +44,6 @@ storiesOf("TaskList", module)
     />
   ))
   .add("loading", () => (
-    <TaskList loading={object("loading", true)} tasks={[]} {...actions} />
+    <TaskList loading={boolean("loading", true)} tasks={[]} {...actions} />
   ))
   .add("empty", () => <TaskList tasks={[]} {...actions} />);
